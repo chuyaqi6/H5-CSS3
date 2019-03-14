@@ -1,0 +1,35 @@
+form{
+    width: 570px;
+    height: 400px;
+    margin: 50px;
+    box-shadow: 0 0 20px rgb(133,127,127);
+}
+legend{
+    color: red;
+}
+span{
+    color: red;
+}
+h1{
+    padding:10px 0 10px 30px;
+}
+#fiel1{
+    width: 490px;
+    height: 120px;
+    margin-left: 30px;
+    margin-bottom: 20;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+#fiel2{
+    width: 490px;
+    height: 100px;
+    margin-left: 30px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+#submit{
+    width: 40px;
+    height: 22px;
+    margin-left: 30px;
+}
