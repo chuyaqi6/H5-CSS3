@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web存储</title>
+    <link rel="stylesheet" href="../css/demo2.css">
+</head>
+<body>
+    <div id="outside">
+        <input type="text" id="search" placeholder="请输入想要查找的商品" autofocus="autofocus" required value=""/>
+        <input type="button" id="submit" value="搜索" onclick="saveStorage();"/>
+        <h6>最近搜索</h6>
+        <div id="div"></div>
+        <input type="button" value="x" onclick="clearStorage()" id="delete"/>
+    </div>
+</body>
+<script src="../js/demo2.js"></script>
+</html>
