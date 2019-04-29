@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>刮刮卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="300px" height="200px">
+
+    </canvas>
+</body>
+<script>
+    var canvas=document.getElementById("canvas");
+    var context=canvas.getContext("2d");
+    canvas.style.backgroundImage = 'url("../img/cake.jpg")';
+
+    /*
+        绘制遮盖层
+    */
+    context.fillStyle = '#aaa';
+    context.fillRect(0,0,300,200);
+    context.globalCompositeOperation = 'destination-out';
+
+    /*
+        开始刮开涂层
+    */
+    function scrape(e){
+        context.beginPath();
+        context.fillStyle = 'white';
+        context.arc(e.clientX,e.clientY,20,0.5,2*Math.PI);
+        context.fill();
+    }
+    /*
+        鼠标单击刮涂层
+    */
+    canvas.onclick=function(e){
+        scrape(e);
+        clear();
+    }
+    /*
+        鼠标移动刮涂层
+    */
+    canvas.onmousedown = function(e){
+        canvas.onmousemove = function(e){
+            scrape(e);
+        }
+        canvas.onmouseup=function(){
+            canvas.onmousemove=null;
+        }
+    };
+    /*
+        遮盖层清除到85%后效果
+    */
+    function clear(){
+        var imgData = context.getImageData(0,0,300,200);
+        var data=imgData.data;
+        var length=data.length;
+        var s=0;
+        for(var i=0;i<length;i+=4){
+            var alpha=data[i+3];
+            if(alpha<10)
+                s++;
+        }
+        var percentage=s/(length/4);
+        if(percentage>0.8)
+            context.clearRect(0,0,300,200);
+    }
+</script>
+</html>
