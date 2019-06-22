@@ -54,10 +54,10 @@ img{
     background: white;
     transition: top 1s linear;
 }
-h1{
+#title{
     margin: 25px 0 10px 20px;
     font-size: 24px;
-    font-weight: bolder;
+    font-weight: bold;
 }
 #grade{
     margin: 0 0 10px 20px;
